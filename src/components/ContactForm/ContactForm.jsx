@@ -4,12 +4,16 @@ import * as Yup from "yup"
 import css from "./ContactForm.module.css"
 import { useDispatch } from "react-redux"
 import { addContact } from "../../redux/contacts/operations"
+import { IoPersonAddSharp } from "react-icons/io5";
+import toast, {Toaster} from "react-hot-toast"
 
 export default function ContactForm() {
     const initialValues = { name: "", number: "" };
     
     const nameFieldId = useId();
     const numberFieldId = useId();
+
+    const notifyAddContact = () => toast("Contact was successfully added to your list")
 
     const dispatch = useDispatch()
     
@@ -37,7 +41,8 @@ export default function ContactForm() {
                         <Field className={css.input} type="text" name="number" id={numberFieldId} />
                         <ErrorMessage className={css.error} name="number" component="span" />
                     </div>
-                    <button className={css.button} type="submit">Add contact</button>
+                    <button onClick={notifyAddContact} className={css.button} type="submit"><IoPersonAddSharp className={css.icon} />Add contact</button>
+                    <Toaster position="top-center" toastOptions={{ duration: 3000, style: {background: "rgb(240, 149, 121)", color: '#000000', textAlign: "center"} }} />
                 </Form>
         </Formik>
     </div>

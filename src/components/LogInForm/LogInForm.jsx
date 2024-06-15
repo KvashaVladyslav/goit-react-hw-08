@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
 import { useId } from "react";
+import { IoLogInSharp } from "react-icons/io5";
 import css from "./LogInForm.module.css"
 
 export default function LogInForm() {
@@ -32,7 +33,7 @@ export default function LogInForm() {
                         <Field className={css.input} type="password" name="password" id={passwordFieldId} />
                         <ErrorMessage className={css.error} name="password" component="span" />
                     </div>
-                    <button className={css.button} type="submit">Log In</button>
+                    <button className={css.button} type="submit"><IoLogInSharp className={css.icon} />Login</button>
                 </Form>
             </Formik>
         </div>

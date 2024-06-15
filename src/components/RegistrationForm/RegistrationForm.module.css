@@ -28,4 +28,11 @@
 .button {
     width: max-content;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
 }

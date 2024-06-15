@@ -3,6 +3,7 @@ import { useId } from "react"
 import { useDispatch } from "react-redux"
 import { register } from "../../redux/auth/operations"
 import * as Yup from "yup"
+import { RiRegisteredFill } from "react-icons/ri";
 import css from "./RegistrationForm.module.css"
 
 export default function RegistrationForm() {
@@ -37,15 +38,15 @@ export default function RegistrationForm() {
                     </div>
                     <div className={css.formField}>
                         <label htmlFor={emailFieldId}>Email</label>
-                        <Field className={css.input} type="text" name="email" id={emailFieldId} />
+                        <Field className={css.input} type="email" name="email" id={emailFieldId} />
                         <ErrorMessage className={css.error} name="email" component="span"/>
                     </div>
                     <div className={css.formField}>
                         <label htmlFor={passwordFieldId}>Password</label>
-                        <Field className={css.input} type="text" name="password" id={passwordFieldId} />
+                        <Field className={css.input} type="password" name="password" id={passwordFieldId} />
                         <ErrorMessage className={css.error} name="password" component="span"/>
                     </div>
-                    <button className={css.button} type="submit">Registration</button>
+                    <button className={css.button} type="submit"><RiRegisteredFill className={css.icon}></RiRegisteredFill>Registration</button>
                 </Form>
             </Formik>
         </div>

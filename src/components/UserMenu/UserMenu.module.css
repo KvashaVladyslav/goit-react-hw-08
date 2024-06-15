@@ -2,9 +2,14 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    align-items: baseline;
+    align-items: center;
 }
 
 .userName {
     color: rgb(240, 149, 121);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
 }

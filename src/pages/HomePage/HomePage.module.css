@@ -30,10 +30,16 @@
     padding: 6px 12px;
     border-radius: 10px;
     width: max-content;
+    align-items: center;
 }
 
 .link:hover {
     border: transparent;
     background-color: rgb(240, 149, 121);
     transition: 1s ease;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
 }
