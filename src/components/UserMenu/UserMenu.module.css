@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.userName {
+    color: rgb(66, 175, 130);
+}
