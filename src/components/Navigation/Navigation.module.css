@@ -1,5 +1,18 @@
 .container {
     display: flex;
     flex-direction: row;
-    gap: 12px;
+    gap: 10px;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 10px;
+}
+
+.link:hover {
+    border: transparent;
+    background-color: rgb(240, 149, 121);
+    transition: 1s ease;
 }

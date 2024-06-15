@@ -2,5 +2,38 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 0 auto;
+    align-items: center;
+    gap: 20px;
+}
+
+.title {
+    font-size: 36px;
+    margin-top: 150px;
+}
+
+.text {
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.linkContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 10px;
+    width: max-content;
+}
+
+.link:hover {
+    border: transparent;
+    background-color: rgb(240, 149, 121);
+    transition: 1s ease;
 }

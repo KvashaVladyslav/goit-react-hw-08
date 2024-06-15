@@ -25,10 +25,10 @@
     height: 20px;
 }
 
-.green {
-    fill: green;
+.brown {
+    fill: rgb(240, 149, 121);
 }
 
-.blue {
-    fill: rgb(3, 3, 102);
+.black {
+    fill: black;
 }

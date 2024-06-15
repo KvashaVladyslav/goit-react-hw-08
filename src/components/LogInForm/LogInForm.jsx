@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations";
 import { useId } from "react";
+import css from "./LogInForm.module.css"
 
 export default function LogInForm() {
 
@@ -20,20 +21,18 @@ export default function LogInForm() {
     return (
         <div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-                <Form>
-                    <div>
-                        <label htmlFor={emailFieldId}>Email
-                            <Field type="email" name="email" id={emailFieldId} />
-                            <ErrorMessage name="email" />
-                        </label>
+                <Form className={css.form}>
+                    <div className={css.formField}>
+                        <label htmlFor={emailFieldId}>Email</label>
+                        <Field className={css.input} type="email" name="email" id={emailFieldId} />
+                        <ErrorMessage className={css.error} name="email" component="span" />
                     </div>
-                    <div>
-                        <label htmlFor={passwordFieldId}>Password
-                            <Field type="password" name="password" id={passwordFieldId} />
-                            <ErrorMessage name="password" />
-                        </label>
+                    <div className={css.formField}>
+                        <label htmlFor={passwordFieldId}>Password</label>
+                        <Field className={css.input} type="password" name="password" id={passwordFieldId} />
+                        <ErrorMessage className={css.error} name="password" component="span" />
                     </div>
-                    <button type="submit">Log In</button>
+                    <button className={css.button} type="submit">Log In</button>
                 </Form>
             </Formik>
         </div>

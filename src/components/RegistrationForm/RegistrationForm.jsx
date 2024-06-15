@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik"
 import { useId } from "react"
 import { useDispatch } from "react-redux"
 import { register } from "../../redux/auth/operations"
+import * as Yup from "yup"
+import css from "./RegistrationForm.module.css"
 
 export default function RegistrationForm() {
     
@@ -18,29 +20,32 @@ export default function RegistrationForm() {
     const emailFieldId = useId()
     const passwordFieldId = useId()
 
+    const ValidationSchema = Yup.object().shape({
+        name: Yup.string().min(3, "Too short name, minimum 3 symbols").max(30, "Too long name, maximum 30 symbols").required("Here is required field"),
+        email: Yup.string().email().required("Here is a required field"),
+        password: Yup.string().min(3, "Too short name, minimum 3 symbols").max(30, "Too long name, maximum 30 symbols").required("Here is a required field")
+    })
+
     return (
         <div>
-            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-                <Form>
-                    <div>
-                        <label htmlFor={nameFieldId}>Name
-                            <Field type="text" name="name" id={nameFieldId} />
-                            <ErrorMessage name="name" component="span"/>
-                        </label>
+            <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={ValidationSchema}>
+                <Form className={css.form}>
+                    <div className={css.formField}>
+                        <label htmlFor={nameFieldId}>Name</label>
+                        <Field className={css.input} type="text" name="name" id={nameFieldId} />
+                        <ErrorMessage className={css.error} name="name" component="span"/>
                     </div>
-                    <div>
-                        <label htmlFor={emailFieldId}>Email
-                            <Field type="text" name="email" id={emailFieldId} />
-                            <ErrorMessage name="email" component="span"/>
-                        </label>
+                    <div className={css.formField}>
+                        <label htmlFor={emailFieldId}>Email</label>
+                        <Field className={css.input} type="text" name="email" id={emailFieldId} />
+                        <ErrorMessage className={css.error} name="email" component="span"/>
                     </div>
-                    <div>
-                        <label htmlFor={passwordFieldId}>Password
-                            <Field type="text" name="password" id={passwordFieldId} />
-                            <ErrorMessage name="password" component="span"/>
-                        </label>
+                    <div className={css.formField}>
+                        <label htmlFor={passwordFieldId}>Password</label>
+                        <Field className={css.input} type="text" name="password" id={passwordFieldId} />
+                        <ErrorMessage className={css.error} name="password" component="span"/>
                     </div>
-                    <button type="submit">Registration</button>
+                    <button className={css.button} type="submit">Registration</button>
                 </Form>
             </Formik>
         </div>

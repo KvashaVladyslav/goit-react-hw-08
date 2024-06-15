@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
+    align-items: baseline;
 }
 
 .userName {
-    color: rgb(66, 175, 130);
+    color: rgb(240, 149, 121);
 }

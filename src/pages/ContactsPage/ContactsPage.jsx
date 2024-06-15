@@ -4,6 +4,7 @@ import ContactList from "../../components/ContactList/ContactList"
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { fetchContacts } from "../../redux/contacts/operations"
+import css from "./ContactsPage.module.css"
 
 
 export default function ContactsPage() {
@@ -16,7 +17,7 @@ export default function ContactsPage() {
 
     return (
         <div>
-            <h1>Phonebook</h1>
+            <h1 className={css.title}>Phonebook</h1>
             <ContactForm />
             <SearchBox />
             <ContactList />

@@ -9,8 +9,8 @@ export default function Navigation() {
     return (
         <nav >
             <ul className={css.container}>
-                <li><NavLink to="/">Home</NavLink></li>
-                {isLoggedIn && <li><NavLink to="/contacts">Contacts</NavLink></li>}
+                <li><NavLink className={css.link} to="/">Home</NavLink></li>
+                {isLoggedIn && <li><NavLink className={css.link} to="/contacts">Contacts</NavLink></li>}
             </ul>
         </nav>
     )

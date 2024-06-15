@@ -12,8 +12,8 @@ export default function Contact({ contact: { name, number, id } }) {
     return (
         <div className={css.container}>
             <div className={css.wrapper}>
-                <p className={css.iconField}><FaUser className={clsx(css.icon, css.blue)} />{name}</p>
-                <p className={css.iconField}><FaSquarePhone className={clsx(css.icon, css.green)} />{number}</p>
+                <p className={css.iconField}><FaUser className={clsx(css.icon, css.black)} />{name}</p>
+                <p className={css.iconField}><FaSquarePhone className={clsx(css.icon, css.brown)} />{number}</p>
             </div>
             <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
         </div>
