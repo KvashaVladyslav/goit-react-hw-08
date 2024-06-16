@@ -29,7 +29,7 @@ export default function LogInForm() {
         dispatch(logIn(values))
             .unwrap()
             .then(() => notifyLogin())
-            .catch((err) => err(notifyWrong()))
+            .catch(() => notifyWrong())
             action.resetForm()
     }
 
