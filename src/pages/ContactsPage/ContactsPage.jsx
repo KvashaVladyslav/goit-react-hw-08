@@ -2,12 +2,16 @@ import ContactForm from "../../components/ContactForm/ContactForm"
 import SearchBox from "../../components/SearchBox/SearchBox"
 import ContactList from "../../components/ContactList/ContactList"
 import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { fetchContacts } from "../../redux/contacts/operations"
 import css from "./ContactsPage.module.css"
+import { selectIsModalOpen } from "../../redux/modalWindow/selectors"
+import ModalWindow from "../../components/ModalWindow/ModalWindow"
 
 
 export default function ContactsPage() {
+
+    const isModalOpen = useSelector(selectIsModalOpen)
 
     const dispatch = useDispatch()
 
@@ -21,6 +25,7 @@ export default function ContactsPage() {
             <ContactForm />
             <SearchBox />
             <ContactList />
+            {isModalOpen && <ModalWindow />}
         </div>
     )
 }

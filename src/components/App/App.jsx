@@ -24,7 +24,7 @@ export default function App() {
         dispatch(refreshUser())
     }, [dispatch])
 
-    return isRefreshing ? (
+    return  isRefreshing ? (
         <div>REFRESHING USER...</div>
     ) : (
         <div className={css.container}>

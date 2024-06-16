@@ -55,8 +55,8 @@ const authSlice = createSlice({
         state.user = {
           name: null,
           email: null,
-          token: null,
         };
+        state.token = null;
         state.isLoggedIn = false;
         state.isRefreshing = false;
       })
@@ -65,22 +65,15 @@ const authSlice = createSlice({
         state.error = true;
       })
       .addCase(refreshUser.pending, (state) => {
-        state.loading = true;
         state.isRefreshing = true;
-        state.error = false;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.loading = false;
-        state.error = false;
         state.user = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, (state) => {
-        state.loading = false;
-        state.error = true;
         state.isRefreshing = false;
-        state.isLoggedIn = false;
       });
   },
 });

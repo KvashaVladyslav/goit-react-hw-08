@@ -5,13 +5,19 @@ import { register } from "../../redux/auth/operations"
 import * as Yup from "yup"
 import { RiRegisteredFill } from "react-icons/ri";
 import css from "./RegistrationForm.module.css"
+import toast from "react-hot-toast"
+import { GrStatusGood } from "react-icons/gr";
+import { LuBadgeX } from "react-icons/lu";
 
 export default function RegistrationForm() {
     
     const dispatch = useDispatch()
 
+    const notifyPositiveRegistration = () => toast(`${<GrStatusGood />}Registration successful`)
+    const notifyWrong = () => toast(`${<LuBadgeX />}Something goes wrong, try again`)
+
     const handleSubmit = (values, actions) => {
-        dispatch(register(values)).unwrap().then(data => console.log(data)).catch(err => console.log(err))
+        dispatch(register(values)).unwrap().then(notifyPositiveRegistration()).catch(notifyWrong())
         actions.resetForm()
     }
 
@@ -29,6 +35,7 @@ export default function RegistrationForm() {
 
     return (
         <div>
+            <h2 className={css.title}>Account registration form</h2>
             <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={ValidationSchema}>
                 <Form className={css.form}>
                     <div className={css.formField}>

@@ -5,6 +5,12 @@
     padding: 40px;
 }
 
+.title {
+    padding: 20px;
+    margin: 0 auto;
+    width: max-content;
+}
+
 .formField {
     display: flex;
     flex-direction: column;
