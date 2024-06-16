@@ -8,15 +8,13 @@ import toast from "react-hot-toast";
 export default function UserMenu() {
 
     const notifyLogOut = () => toast("Good bye, see you soon")
-    const notifyWrong = () => toast("Something goes wrong, try again")
 
     const dispatch = useDispatch()
 
     const handleLogOut = () => {
         dispatch(logOut())
             .unwrap()
-            .then(() => notifyLogOut())
-            .catch(() => notifyWrong())
+            .then(notifyLogOut())
     }
 
     const user = useSelector(selectUser)

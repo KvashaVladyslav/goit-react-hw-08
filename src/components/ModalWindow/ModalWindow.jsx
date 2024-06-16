@@ -11,7 +11,6 @@ Modal.setAppElement('#root');
 export default function ModalWindow() {
 
     const notifyDeleteContact = () => toast("Contact was successfully deleted from your list")
-    const notifyWrong = () => toast("Something goes wrong, try again")
 
     const isModalOpen = useSelector(selectIsModalOpen)
     const contactId = useSelector(selectContactId)
@@ -19,7 +18,7 @@ export default function ModalWindow() {
     const dispatch = useDispatch()
     
     const handleDelete = () => {
-        dispatch(deleteContact(contactId)).unwrap().then(() => notifyDeleteContact()).catch(() => notifyWrong())
+        dispatch(deleteContact(contactId)).unwrap().then(notifyDeleteContact())
         dispatch(closeModal())
     }
 

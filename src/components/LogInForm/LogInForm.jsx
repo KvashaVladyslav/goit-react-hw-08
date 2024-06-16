@@ -6,6 +6,7 @@ import { IoLogInSharp } from "react-icons/io5";
 import css from "./LogInForm.module.css"
 import toast from "react-hot-toast";
 import * as Yup from "yup"
+import { Toaster } from "react-hot-toast";
 
 
 export default function LogInForm() {
@@ -21,15 +22,13 @@ export default function LogInForm() {
     const passwordFieldId = useId()
 
     const notifyLogin = () => toast("Welcome to the contacts book")
-    const notifyWrong = () => toast("Something goes wrong, try again")
-
+    
     const dispatch = useDispatch()
 
     const handleSubmit = (values, action) => {
         dispatch(logIn(values))
             .unwrap()
-            .then(() => notifyLogin())
-            .catch(() => notifyWrong())
+            .then(notifyLogin())
             action.resetForm()
     }
 
@@ -49,6 +48,7 @@ export default function LogInForm() {
                         <ErrorMessage className={css.error} name="password" component="span" />
                     </div>
                     <button className={css.button} type="submit"><IoLogInSharp className={css.icon} />Login</button>
+                    <Toaster position="top-center" toastOptions={{ duration: 3000, style: {background: "rgb(240, 149, 121)", color: '#000000', textAlign: "center"} }} />
                 </Form>
             </Formik>
         </div>

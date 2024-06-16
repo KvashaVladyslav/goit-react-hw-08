@@ -14,12 +14,11 @@ export default function ContactForm() {
     const numberFieldId = useId();
 
     const notifyAddContact = () => toast("Contact was successfully added to your list")
-    const notifyWrong = () => toast("Something goes wrong, try again")
 
     const dispatch = useDispatch()
     
     const handleSubmit = (values, actions) => {
-        dispatch(addContact(values)).unwrap().then(() => notifyAddContact()).catch(() => notifyWrong())
+        dispatch(addContact(values)).unwrap().then(notifyAddContact())
         actions.resetForm()
     }
 

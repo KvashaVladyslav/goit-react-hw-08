@@ -13,7 +13,7 @@ export default function HomePage() {
         <div className={css.container}>
             <h1 className={css.title}>Welcome to the home page of contacts manager</h1>
             <p className={css.text}>Here you can create your own contacts book</p> 
-            {isLoggedIn ? <Link className={css.link} to="/contacts"><RiContactsBook3Fill className={css.icon} />Contacts</Link> : <div className={css.linkContainer}><Link className={css.link} to="/registration"><RiRegisteredFill className={css.icon} />Registration</Link> <Link className={css.link} to="/login"><IoLogInSharp className={css.icon} />Login</Link></div>}
+            {isLoggedIn ? <Link className={css.link} to="/contacts"><RiContactsBook3Fill className={css.icon} />Contacts</Link> : <div className={css.linkContainer}><Link className={css.link} to="/register"><RiRegisteredFill className={css.icon} />Registration</Link> <Link className={css.link} to="/login"><IoLogInSharp className={css.icon} />Login</Link></div>}
         </div>
     )
 }
